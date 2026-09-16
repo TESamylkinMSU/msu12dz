@@ -1,0 +1,36 @@
+#include <stdio.h>
+double middle_of_sum(FILE *f);
+double middle_of_sum(FILE *f)
+{
+    int count ;
+    double sum=0. , no1=0. , sred=0. ;
+    if (fscanf(f, "%lf") != 1)
+    {
+        printf("Type error");
+        return 0;
+    }
+    while (fscanf(f, "%lf", &no1) == 1)
+    {
+        count += 1;
+        sum += no1;
+    }
+    sred = sum/count;
+    return sum;
+}
+int main(void)
+{
+    char a ;
+    printf("Enter your file");
+    scanf("%c", &a);
+    FILE *f = fopen("a","r");
+    if (f == NULL)
+    {
+        printf("File error");
+        return -1;
+    }
+    else
+    {
+        printf("Answer: %lf", middle_of_sum(f));
+        return 0;
+    }
+}
