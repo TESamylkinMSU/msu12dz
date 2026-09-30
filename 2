@@ -1,0 +1,45 @@
+#include <stdio.h>
+double middle_of_sum(FILE *f);
+double middle_of_sum(FILE *f)
+{
+    int c = 1;
+    double sum=0. , no1=0. , sred=0.  , k=0. ;
+    if (fscanf(f, "%lf", &k) != 1)
+    {
+        printf("Type error");
+        return 0;
+    }
+    if (k == 0.0 )
+    {
+        printf("File include zero ");
+        return 0;
+    }
+    sum = 1/k ;
+    while (fscanf(f, "%lf", &no1) == 1)
+    {
+        if (no1==0.0)
+        {
+            printf("File include zero ");
+            return 0;
+        }
+        c += 1;
+        sum += 1/no1;
+
+    }
+    sred = (double)sum/c;
+    return sred;
+}
+int main(void)
+{
+        FILE *f = fopen("numbers","r");
+    if (f == NULL)
+    {
+        printf("File error");
+        return -1;
+    }
+    else
+    {
+        printf("Answer: %lf", middle_of_sum(f));
+        return 0;
+    }
+}
