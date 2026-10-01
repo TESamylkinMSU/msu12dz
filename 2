@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <math.h>
+#define eps 1.e-10
 double middle_of_sum(FILE *f);
 double middle_of_sum(FILE *f)
 {
@@ -9,7 +11,7 @@ double middle_of_sum(FILE *f)
         printf("Type error");
         return 0;
     }
-    if (k == 0.0 )
+    if (fabs(k)<eps)
     {
         printf("File include zero ");
         return 0;
@@ -17,7 +19,7 @@ double middle_of_sum(FILE *f)
     sum = 1/k ;
     while (fscanf(f, "%lf", &no1) == 1)
     {
-        if (no1==0.0)
+        if (fabs(no1)<eps)
         {
             printf("File include zero ");
             return 0;
@@ -26,7 +28,12 @@ double middle_of_sum(FILE *f)
         sum += 1/no1;
 
     }
-    sred = (double)sum/c;
+    if (fabs(sum)<eps)
+    {
+        printf("Summ = 0 , Process over ");
+        return 0;
+    }
+    sred = c/sum;
     return sred;
 }
 int main(void)
