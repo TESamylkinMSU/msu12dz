@@ -1,1 +1,8 @@
-all: 2.o func1.o func2.o
+all: 3.o func1.o func2.o
+      gcc 3.o func1.o func2.o && rm *.o && ./a.out
+3.o : 3.c
+      gcc -c 3.c
+func1.o : func1.c
+      gcc -c func1.c
+func2.o : func2.c
+      gcc -c func2.c
