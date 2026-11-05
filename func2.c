@@ -1,4 +1,4 @@
-#include "func1.h"
+#include "func2.h"
 #include <math.h>
 
 double sred_kvadrat(FILE * f)
