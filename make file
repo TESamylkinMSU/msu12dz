@@ -1,5 +1,5 @@
 all: 2.o func.o
-      gcc 2.o func.o && rm *.o
+      gcc 2.o func.o && rm *.o && ./a.out
 2.o : 2.c
       gcc -c 2.c
 func.o : func.c
