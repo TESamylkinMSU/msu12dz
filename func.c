@@ -25,6 +25,10 @@ double find_longest_process(FILE * f)
       vhod = kfile;
       c = 1;
     }
+    if (c>k)
+    {
+      k = c;
+    }
   }
   return k;
 }
