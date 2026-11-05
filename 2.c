@@ -3,14 +3,14 @@
 int main(void)
 {
     FILE * f = fopen("numbers.txt","r");
-    if (f == NILL)
+    if (f == NULL)
     {
-        print("File error");
+        printf("File error");
         return -1;
     }
     else
     {
-        print("Answer: %lf", find_longest_process(f));
+        printf("Answer: %lf", find_longest_process(f));
         return 0;
     }
 }
